@@ -2,7 +2,9 @@ import React,{useEffect} from 'react';
 import { Container, Row, Col} from "react-bootstrap";
 import {Pizza} from "../component/Pizza";
 import {useDispatch,useSelector} from 'react-redux';
-import {AllPizzas} from '../Actions/pizzaAction'
+import {AllPizzas} from '../Actions/pizzaAction';
+import {Loader} from '../component/Loader'
+import { Error } from '../component/Error';
 
 export const HomeScreen = () => {
     const dispatch = useDispatch();
@@ -15,7 +17,8 @@ export const HomeScreen = () => {
   return (
     <>
     <Container style={{ marginTop: "50px" }}>
-        {loading ?  (<h1>loading ....</h1>) : error ? (<h1>error</h1>) : 
+        {loading ?  (<Loader />) : error ? (
+        <Error error="error while fetching" />) : 
                 <Row>
                 {pizzas.map(pizza=>{
                    return <Col md={4}>

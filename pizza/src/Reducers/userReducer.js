@@ -38,6 +38,6 @@ export const userLoginReducer = (state={},action)=>{
                 error:action.payload
             }   
          default :
-         return state;     
+         return state    
     }
 }

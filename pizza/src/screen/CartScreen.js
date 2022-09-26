@@ -5,6 +5,7 @@ import {AiFillMinusCircle} from 'react-icons/ai'
 import {AiFillPlusCircle} from 'react-icons/ai';
 import {AiFillDelete} from 'react-icons/ai';
 import { addToCart,deleteFromCart } from '../Actions/cartAction';
+import { Checkout } from '../component/Checkout';
 
 export const CartScreen = () => {
 const state = useSelector((state)=>state.CartReducer);
@@ -44,7 +45,7 @@ const subTotal =cartItems.reduce((x,item)=>x+item.price,0)
             <Col md={4}><h3>Payment Info</h3>
             <h5>Sub Total</h5>
             <h5>RS {subTotal} /-</h5>
-            <Button >Checkout</Button>
+            <Checkout subtotal={subTotal}/>
             </Col>
         </Row>
     </Container>

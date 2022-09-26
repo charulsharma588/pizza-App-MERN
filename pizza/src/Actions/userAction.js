@@ -23,3 +23,9 @@ window.location.href = "/";
     dispatch({type:'USER_LOGIN_FAIL',payload:error})
   }
 }
+
+
+export const userLogout = ()=>(dispatch)=>{
+    localStorage.removeItem('CurrentUser')
+    window.location.href='/login'
+}
